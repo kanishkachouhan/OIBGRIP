@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class numberguesssinggame {
+ public static void main(String[] args) {
+        int attempt = 1;
+        int userguessnumber = 0;
+        int computerinput = (int) (Math.random() * 99 + 1);
+
+        Scanner userInput = new Scanner(System.in);
+        System.out.println("Welcome to the number guessing game\n" +
+                " You have total 7 number of attempts to guess the number");
+
+        do {
+
+            System.out.println("Enter a guess number between 1 to 100");
+
+            if (userInput.hasNextInt()) {
+                userguessnumber = userInput.nextInt();
+                if (userguessnumber == computerinput) {
+                    System.out.println("WELL DONE,YOU GUESSED THE RIGHT NUMBER");
+                    System.out.printf("CONGRATS!,You have guessed the number in %d attempts\n",attempt);
+                    int score = ((11-attempt)*10);
+                    System.out.printf("\nYour score is %d out of 100",score);
+                    break;
+
+                } else if (userguessnumber < computerinput)
+                    System.out.println("The number you guessed is smaller than original number");
+                else if (userguessnumber > computerinput)
+                    System.out.println("The number you guessed is bigger than original number");
+                if (attempt == 7) {
+                    System.out.println("You have exceeded the maximum attempt.Try again");
+                    break;
+
+                }
+                attempt++;
+
+            } else {
+                System.out.println("the number is exceeds the limit ");
+
+                break;
+
+            }
+        }
+            while (userguessnumber != computerinput) ;
+
+
+    }
+
+}
