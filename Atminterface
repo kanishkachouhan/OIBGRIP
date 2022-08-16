@@ -1,0 +1,68 @@
+import java.util.*;
+public class atminterface {
+    static void atmoperation(int pin){
+        int balance=1000000,withdraw,deposit;
+
+        Scanner sc=new Scanner(System.in);
+        if(pin==34120  ){
+            System.out.println("welcome");
+            while (true){
+                System.out.println("\nEnter 1 for checking balance");
+                System.out.println("Enter 2 for money withdrawal");
+                System.out.println("Enter 3 for depositing money");
+
+                System.out.println("Enter 4 for EXIT");
+                System.out.println("Choose any one operation you want to perform");
+
+                int input = sc.nextInt();
+                switch (input){
+                    case 1:
+                        System.out.printf("Your balance is %d\n", balance);
+                        break;
+
+                    case 2:
+                        System.out.println("Enter the amount you want to withdraw");
+                        withdraw=sc.nextInt();
+                        if(withdraw<balance){
+                            System.out.println(withdraw+" Rupees withdrawn successfully");
+                            balance= balance-withdraw;
+                            System.out.printf("Total Balance is %d rupees\n",balance);
+                            break;}
+                            else {
+                            System.out.println("\nInsufficient balance");
+                        }
+                            break;
+                    case 3:
+                        System.out.println("\nEnter the amount you want to deposit\n");
+                        deposit =sc.nextInt();
+                            System.out.println(deposit+"Rupees deposited successfully");
+                            balance= balance+deposit;
+                        System.out.printf("Total Balance is %d rupees\n",balance);
+                            break;
+
+                    case 4:
+                        System.out.println("\nThank you for using this atm");
+                        System.out.println("Visit again");
+
+
+
+                        }
+                }
+
+
+            }
+        else {
+            System.out.println("wrong pin");
+
+
+}
+        }
+
+    public static void main(String[] args) {
+        System.out.println("welcome to atm machine");
+        Scanner input= new Scanner(System.in);
+        System.out.println("enter pin");
+        int pin = input.nextInt();
+        atmoperation(pin);
+    }
+}
